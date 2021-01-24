@@ -18,7 +18,13 @@ const App = () => {
         <Stack.Navigator>
           {authState.token == null ? (
             <>
-              <Stack.Screen name='SignIn' component={SignInScreen} />
+              <Stack.Screen
+                name='SignIn'
+                component={SignInScreen}
+                options={{
+                  title: 'Giriş',
+                }}
+              />
               <Stack.Screen name='SignUp' component={SignUpScreen} />
             </>
           ) : (

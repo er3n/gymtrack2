@@ -1,0 +1,5 @@
+{
+  "email": "E-Posta",
+  "password": "Şifre",
+  "invalidField": "Geçeriz {{field}}"
+}

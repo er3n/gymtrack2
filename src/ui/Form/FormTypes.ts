@@ -8,7 +8,7 @@ export interface FormInputProps extends NativeBase.Input {
   name: string;
   defaultValue?: string;
   rules?: Exclude<RegisterOptions, 'valueAsNumber' | 'valueAsDate' | 'setValueAs'>;
-  placeholder: string;
+  placeholderTx: string;
 }
 
 export interface FormButtonProps extends NativeBase.Button {

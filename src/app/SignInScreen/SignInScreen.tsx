@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Content, Toast } from 'native-base';
+import { useTranslation } from 'react-i18next';
 import BigLogo from '../../ui/Logo/BigLogo';
 import { ISignInRequest } from '../../core/auth/AuthContextTypes';
 import Form from '../../ui/Form/Form';
@@ -29,11 +30,11 @@ export default function () {
         <Form>
           <FormInput
             name='username'
-            placeholder='E-Posta'
+            placeholderTx='email'
             autoCompleteType='email'
             rules={{ required: true, pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/ }}
           />
-          <FormInput name='password' placeholder='Şifre' secureTextEntry rules={{ required: true }} />
+          <FormInput name='password' placeholderTx='password' secureTextEntry rules={{ required: true }} />
           <FormButton onSubmit={onSubmit} />
         </Form>
       </Content>

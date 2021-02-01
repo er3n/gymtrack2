@@ -2,9 +2,11 @@ import React, { FC } from 'react';
 import { Icon, Input, Item, Text } from 'native-base';
 import { Controller, useFormContext } from 'react-hook-form';
 import { FormInputProps } from '../FormTypes';
+import { useTranslation } from 'react-i18next';
 
-const FormInput: FC<FormInputProps> = ({ name, defaultValue = '', rules, ...rest }) => {
+const FormInput: FC<FormInputProps> = ({ name, defaultValue = '', rules, placeholderTx, ...rest }) => {
   const methods = useFormContext();
+  const { t } = useTranslation();
 
   return (
     <Controller
@@ -15,10 +17,10 @@ const FormInput: FC<FormInputProps> = ({ name, defaultValue = '', rules, ...rest
       render={({ value, onChange, onBlur }) => (
         <>
           <Item style={{ marginTop: 20 }} error={!!methods.errors[name]}>
-            <Input {...rest} value={value} onChangeText={onChange} onBlur={onBlur} />
+            <Input {...rest} placeholder={t(placeholderTx)} value={value} onChangeText={onChange} onBlur={onBlur} />
             {!!methods.errors[name] && <Icon name='close-circle' />}
           </Item>
-          {methods.errors[name] && <Text style={{ color: 'red', marginLeft: 20 }}>Geçersiz {rest.placeholder}</Text>}
+          {methods.errors[name] && <Text style={{ color: 'red', marginLeft: 20 }}>{t('invalidField', { field: t(placeholderTx) })}</Text>}
         </>
       )}
     />

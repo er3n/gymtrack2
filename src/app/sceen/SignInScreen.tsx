@@ -2,11 +2,11 @@ import React from 'react';
 import { Container, Content, Toast } from 'native-base';
 import BigLogo from 'ui/Logo/BigLogo';
 import { ISignInRequest } from 'core/auth/AuthContextTypes';
-import Form from 'ui/Form/Form';
-import FormInput from 'ui/Form/FormInput/FormInput';
-import FormButton from 'ui/Form/FormButton/FormButton';
+import FormContainer from 'ui/Form/FormContainer';
+import FormInput from 'ui/Form/FormInput';
+import FormButton from 'ui/Form/FormButton';
 
-export default function () {
+export function SignInScreen() {
   const onSubmit = async (data: ISignInRequest) => {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -26,7 +26,7 @@ export default function () {
     <Container>
       <Content style={{ marginTop: 20 }}>
         <BigLogo />
-        <Form>
+        <FormContainer>
           <FormInput
             name='username'
             placeholderTx='email'
@@ -35,7 +35,7 @@ export default function () {
           />
           <FormInput name='password' placeholderTx='password' secureTextEntry rules={{ required: true }} />
           <FormButton onSubmit={onSubmit} />
-        </Form>
+        </FormContainer>
       </Content>
     </Container>
   );

@@ -2,7 +2,7 @@ import { NativeBase } from 'native-base';
 import { RegisterOptions } from 'react-hook-form/dist/types/validator';
 import { SubmitHandler } from 'react-hook-form/dist/types/form';
 
-export interface FormProps {}
+export interface FormContainerProps {}
 
 export interface FormInputProps extends NativeBase.Input {
   name: string;

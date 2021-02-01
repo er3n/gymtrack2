@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { Button, Item, Spinner, Text } from 'native-base';
 import { useFormContext } from 'react-hook-form';
-import { FormButtonProps } from '../FormTypes';
+import { FormButtonProps } from './FormTypes';
 
 const FormButton: FC<FormButtonProps> = ({ onSubmit }) => {
   const { handleSubmit } = useFormContext();

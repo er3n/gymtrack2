@@ -3,7 +3,7 @@ import IAuthContext, { IAuthProviderProps, IAuthReducer, IAuthState } from './Au
 
 const AuthContext = React.createContext<undefined | IAuthContext>(undefined);
 
-export default function (): [IAuthState, FC<IAuthProviderProps>] {
+export function useAuthContextProvider(): [IAuthState, FC<IAuthProviderProps>] {
   const [state, dispatch] = React.useReducer<IAuthReducer>(
     (prevState, action) => {
       switch (action.type) {

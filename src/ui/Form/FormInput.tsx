@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Icon, Input, Item, Text } from 'native-base';
 import { Controller, useFormContext } from 'react-hook-form';
-import { FormInputProps } from '../FormTypes';
+import { FormInputProps } from './FormTypes';
 import { useTranslation } from 'react-i18next';
 
 const FormInput: FC<FormInputProps> = ({ name, defaultValue = '', rules, placeholderTx, ...rest }) => {

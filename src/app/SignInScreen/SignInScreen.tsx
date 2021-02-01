@@ -1,10 +1,10 @@
 import React from 'react';
 import { Container, Content, Toast } from 'native-base';
-import BigLogo from '../../ui/Logo/BigLogo';
-import { ISignInRequest } from '../../core/auth/AuthContextTypes';
-import Form from '../../ui/Form/Form';
-import FormInput from '../../ui/Form/FormInput/FormInput';
-import FormButton from '../../ui/Form/FormButton/FormButton';
+import BigLogo from 'ui/Logo/BigLogo';
+import { ISignInRequest } from 'core/auth/AuthContextTypes';
+import Form from 'ui/Form/Form';
+import FormInput from 'ui/Form/FormInput/FormInput';
+import FormButton from 'ui/Form/FormButton/FormButton';
 
 export default function () {
   const onSubmit = async (data: ISignInRequest) => {

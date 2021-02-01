@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Content, Toast } from 'native-base';
-import { useTranslation } from 'react-i18next';
 import BigLogo from '../../ui/Logo/BigLogo';
 import { ISignInRequest } from '../../core/auth/AuthContextTypes';
 import Form from '../../ui/Form/Form';

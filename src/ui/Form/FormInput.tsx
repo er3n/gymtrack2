@@ -4,7 +4,7 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { FormInputProps } from './FormTypes';
 import { useTranslation } from 'react-i18next';
 
-const FormInput: FC<FormInputProps> = ({ name, defaultValue = '', rules, placeholderTx, ...rest }) => {
+const FormInput: FC<FormInputProps> = ({ name, defaultValue = '', placeholderTx, ...rest }) => {
   const methods = useFormContext();
   const { t } = useTranslation();
 
@@ -12,7 +12,6 @@ const FormInput: FC<FormInputProps> = ({ name, defaultValue = '', rules, placeho
     <Controller
       name={name}
       control={methods.control}
-      rules={rules}
       defaultValue={defaultValue}
       render={({ value, onChange, onBlur }) => (
         <>

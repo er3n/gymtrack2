@@ -35,13 +35,8 @@ export function SignInScreen() {
       <Content style={{ marginTop: 20 }}>
         <BigLogo />
         <FormContainer validationSchema={signInValidationSchema}>
-          <FormInput
-            name='username'
-            placeholderTx='email'
-            autoCompleteType='email'
-            rules={{ required: true, pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/ }}
-          />
-          <FormInput name='password' placeholderTx='password' secureTextEntry rules={{ required: true }} />
+          <FormInput name='username' placeholderTx='email' autoCompleteType='email' />
+          <FormInput name='password' placeholderTx='password' secureTextEntry />
           <FormButton onSubmit={onSubmit} />
         </FormContainer>
       </Content>

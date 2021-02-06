@@ -17,10 +17,10 @@ const FormInput: FC<FormInputProps> = ({ name, defaultValue = '', rules, placeho
       render={({ value, onChange, onBlur }) => (
         <>
           <Item style={{ marginTop: 20 }} error={!!methods.errors[name]}>
-            <Input {...rest} placeholder={t(placeholderTx)} value={value} onChangeText={onChange} onBlur={onBlur} />
+            <Input {...rest} label='asd' placeholder={t(placeholderTx)} value={value} onChangeText={onChange} onBlur={onBlur} />
             {!!methods.errors[name] && <Icon name='close-circle' />}
           </Item>
-          {methods.errors[name] && <Text style={{ color: 'red', marginLeft: 20 }}>{t('invalidField', { field: t(placeholderTx) })}</Text>}
+          {methods.errors[name] && <Text style={{ color: 'red', marginLeft: 20 }}>{methods.errors[name].message}</Text>}
         </>
       )}
     />

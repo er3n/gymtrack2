@@ -1,8 +1,11 @@
 import { NativeBase } from 'native-base';
+import Yup from 'yup';
 import { RegisterOptions } from 'react-hook-form/dist/types/validator';
 import { SubmitHandler } from 'react-hook-form/dist/types/form';
 
-export interface FormContainerProps {}
+export interface FormContainerProps {
+  validationSchema?: Yup.AnyObjectSchema;
+}
 
 export interface FormInputProps extends NativeBase.Input {
   name: string;

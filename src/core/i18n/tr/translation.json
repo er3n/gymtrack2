@@ -1,5 +1,14 @@
 {
   "email": "E-Posta",
   "password": "Şifre",
-  "invalidField": "Geçeriz {{field}}"
+  "validation": {
+    "mixed": {
+      "required": "Boş olamaz."
+    },
+    "string": {
+      "email": "Geçerli bir eposta olmalı.",
+      "min": "En az ${min} karakter olmalıdır",
+      "max": "En fazla ${max} karakter olmalıdır"
+    }
+  }
 }

@@ -11,7 +11,7 @@ const FormContainer: FC<FormContainerProps> = ({ children, validationSchema }) =
 
   return (
     <FormProvider {...methods}>
-      <Form style={{ paddingRight: 20, paddingLeft: 20 }}>{children}</Form>
+      <Form>{children}</Form>
     </FormProvider>
   );
 };

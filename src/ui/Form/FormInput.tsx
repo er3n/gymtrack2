@@ -3,6 +3,11 @@ import { Icon, Input, Item, Text } from 'native-base';
 import { Controller, useFormContext } from 'react-hook-form';
 import { FormInputProps } from './FormTypes';
 import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
+
+const ErrorText = styled(Text)`
+  color: #ff0033;
+`;
 
 const FormInput: FC<FormInputProps> = ({ name, defaultValue = '', placeholderTx, ...rest }) => {
   const methods = useFormContext();
@@ -15,11 +20,11 @@ const FormInput: FC<FormInputProps> = ({ name, defaultValue = '', placeholderTx,
       defaultValue={defaultValue}
       render={({ value, onChange, onBlur }) => (
         <>
-          <Item style={{ marginTop: 20 }} error={!!methods.errors[name]}>
+          <Item style={{ marginTop: 20, marginLeft: 0 }} error={!!methods.errors[name]}>
             <Input {...rest} label='asd' placeholder={t(placeholderTx)} value={value} onChangeText={onChange} onBlur={onBlur} />
             {!!methods.errors[name] && <Icon name='close-circle' />}
           </Item>
-          {methods.errors[name] && <Text style={{ color: 'red', marginLeft: 20 }}>{methods.errors[name].message}</Text>}
+          {methods.errors[name] && <ErrorText>{methods.errors[name].message}</ErrorText>}
         </>
       )}
     />

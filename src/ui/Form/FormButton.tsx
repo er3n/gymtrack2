@@ -18,7 +18,7 @@ const FormButton: FC<FormButtonProps> = ({ onSubmit }) => {
   };
 
   return (
-    <Item style={{ marginTop: 20 }}>
+    <Item style={{ marginTop: 20, marginLeft: 0 }}>
       <Button block style={{ width: '100%' }} onPress={handleSubmit(onSubmitWrapper)} disabled={active}>
         <Text style={{ fontWeight: 'bold' }}> Giriş </Text>
         {active && <Spinner color='white' />}

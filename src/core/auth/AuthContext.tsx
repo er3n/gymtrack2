@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react';
+import React, { FC, useContext, useEffect, useMemo } from 'react';
 import IAuthContext, { IAuthProviderProps, IAuthReducer, IAuthState } from './AuthContextTypes';
 
 const AuthContext = React.createContext<undefined | IAuthContext>(undefined);
@@ -34,14 +34,14 @@ export function useAuthContextProvider(): [IAuthState, FC<IAuthProviderProps>] {
     } as IAuthState
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     const bootstrapAsync = async () => {
       dispatch({ type: 'RESTORE_TOKEN', token: null });
     };
     bootstrapAsync();
   }, []);
 
-  const authContext = React.useMemo<IAuthContext>(
+  const authContext = useMemo<IAuthContext>(
     () => ({
       signIn: async (signInRequest) => {
         console.log(signInRequest);
@@ -62,7 +62,5 @@ export function useAuthContextProvider(): [IAuthState, FC<IAuthProviderProps>] {
 }
 
 export function useAuthContext() {
-  const authContext = useContext(AuthContext);
-
-  return authContext;
+  return useContext(AuthContext);
 }

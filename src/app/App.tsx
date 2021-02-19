@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { Root } from 'native-base';
 import { initConfig, useAuthContextProvider } from 'core';
-import { DashboardScreen, SignInScreen, SignUpScreen } from './sceen';
-
-const Stack = createStackNavigator();
+import RootNavigation from './navigation/RootNavigation';
 
 const App = () => {
   const [appConfigReady, setAppConfigReady] = useState(false);
@@ -23,24 +19,7 @@ const App = () => {
   return (
     <Root>
       <AuthContextProvider>
-        <NavigationContainer>
-          <Stack.Navigator>
-            {authState.token == null ? (
-              <>
-                <Stack.Screen
-                  name='SignIn'
-                  component={SignInScreen}
-                  options={{
-                    title: 'Giriş',
-                  }}
-                />
-                <Stack.Screen name='SignUp' component={SignUpScreen} />
-              </>
-            ) : (
-              <Stack.Screen name='Dashboard' component={DashboardScreen} />
-            )}
-          </Stack.Navigator>
-        </NavigationContainer>
+        <RootNavigation authenticated={!!authState.token} />
       </AuthContextProvider>
     </Root>
   );

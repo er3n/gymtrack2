@@ -1,18 +1,23 @@
 import React from 'react';
-import { Image, StyleSheet } from 'react-native';
+import { Text, View } from 'react-native';
+import styled from 'styled-components';
 
-const logo = require('./logo.png');
+const LogoContainer = styled(View)`
+  align-items: center;
+`;
 
-const styles = StyleSheet.create({
-  logo: {
-    alignSelf: 'center',
-    marginVertical: 5,
-    maxWidth: '100%',
-  },
-});
+const LogoText = styled(Text)`
+  font-size: 40px;
+  color: #2b2b2b;
+  font-style: italic;
+`;
 
 const BigLogo = () => {
-  return <Image source={logo} style={styles.logo} />;
+  return (
+    <LogoContainer>
+      <LogoText>Gym Track</LogoText>
+    </LogoContainer>
+  );
 };
 
 export default BigLogo;

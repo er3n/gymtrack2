@@ -18,7 +18,7 @@ export interface ISignInRequest {
   password: string;
 }
 
-export interface ISignInRequest {
+export interface ISignUpRequest {
   username: string;
   password: string;
 }
@@ -26,7 +26,7 @@ export interface ISignInRequest {
 export default interface IAuthContext {
   signIn: (signInRequest: ISignInRequest) => Promise<void>;
   signOut: () => Promise<void>;
-  signUp: (signUpRequest: ISignInRequest) => Promise<void>;
+  signUp: (signUpRequest: ISignUpRequest) => Promise<void>;
 }
 
 export interface IAuthProviderProps {

@@ -6,6 +6,10 @@
   "alreadyMember": "Zaten üye misin?",
   "signUp": "Üye ol",
   "signIn": "Giriş yap",
+  "signOut": "Çıkış yap",
+  "status": "Durum",
+  "lessons": "Dersler",
+  "settings": "Ayarlar",
   "validation": {
     "mixed": {
       "required": "Boş olamaz."

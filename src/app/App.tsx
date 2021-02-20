@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import 'react-native-gesture-handler';
 import { Root } from 'native-base';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { initConfig, AuthProvider } from 'core';
 import RootNavigation from './navigation/RootNavigation';
 
@@ -16,11 +17,13 @@ const App = () => {
   }
 
   return (
-    <Root>
-      <AuthProvider>
-        <RootNavigation />
-      </AuthProvider>
-    </Root>
+    <SafeAreaProvider>
+      <Root>
+        <AuthProvider>
+          <RootNavigation />
+        </AuthProvider>
+      </Root>
+    </SafeAreaProvider>
   );
 };
 

@@ -1,6 +1,11 @@
 {
   "email": "E-Posta",
   "password": "Şifre",
+  "passwordConfirmation": "Şifre Tekrar",
+  "dontHaveAccount": "Hesabın yok mu ?",
+  "alreadyMember": "Zaten üye misin?",
+  "signUp": "Üye ol",
+  "signIn": "Giriş yap",
   "validation": {
     "mixed": {
       "required": "Boş olamaz."

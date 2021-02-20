@@ -14,4 +14,5 @@ export interface FormInputProps extends NativeBase.Input {
 
 export interface FormButtonProps extends NativeBase.Button {
   onSubmit: SubmitHandler<any>;
+  tx: string;
 }

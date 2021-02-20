@@ -1,17 +1,18 @@
-import { ReactNode, Reducer } from 'react';
+import { ReactNode } from 'react';
+import { FirebaseAuthTypes } from '@react-native-firebase/auth';
 
 export interface IAuthState {
-  isLoading: boolean;
-  isSignOut: boolean;
-  token: string | null;
+  status: 'AUTHENTICATED' | 'UNAUTHENTICATED' | 'LOADING';
+  username?: string | null;
 }
 
 export interface IAuthAction {
   type: 'SIGN_IN' | 'SIGN_OUT' | 'RESTORE_TOKEN';
   token: string | null;
+  signIn: (request: ISignInRequest) => Promise<FirebaseAuthTypes.UserCredential>;
+  signOut: () => Promise<void>;
+  signUp: (request: ISignUpRequest) => Promise<FirebaseAuthTypes.UserCredential>;
 }
-
-export interface IAuthReducer extends Reducer<IAuthState, IAuthAction> {}
 
 export interface ISignInRequest {
   username: string;

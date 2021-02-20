@@ -3,20 +3,18 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { DashboardScreen, SignInScreen, SignUpScreen } from '../screen';
+import { RootNavigationTypes } from './RootNavigationTypes';
+import { useAuthState } from 'core';
 
-export type StackParams = {
-  SignIn: undefined;
-  SignUp: undefined;
-  Dashboard: undefined;
-};
+const Stack = createStackNavigator<RootNavigationTypes>();
 
-const Stack = createStackNavigator<StackParams>();
+const RootNavigation = () => {
+  const authState = useAuthState();
 
-const RootNavigation = ({ authenticated }: { authenticated: boolean }) => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {!authenticated ? (
+        {authState.status != 'AUTHENTICATED' ? (
           <>
             <Stack.Screen
               name='SignIn'

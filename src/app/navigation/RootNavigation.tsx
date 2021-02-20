@@ -5,11 +5,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { DashboardScreen, SignInScreen, SignUpScreen } from '../screen';
 import { RootNavigationTypes } from './RootNavigationTypes';
 import { useAuthState } from 'core';
+import { useTranslation } from 'react-i18next';
 
 const Stack = createStackNavigator<RootNavigationTypes>();
 
 const RootNavigation = () => {
   const authState = useAuthState();
+  const { t } = useTranslation();
 
   return (
     <NavigationContainer>
@@ -20,10 +22,16 @@ const RootNavigation = () => {
               name='SignIn'
               component={SignInScreen}
               options={{
-                title: 'Giriş',
+                title: t('signIn'),
               }}
             />
-            <Stack.Screen name='SignUp' component={SignUpScreen} />
+            <Stack.Screen
+              name='SignUp'
+              component={SignUpScreen}
+              options={{
+                title: t('signUp'),
+              }}
+            />
           </>
         ) : (
           <Stack.Screen name='Dashboard' component={DashboardScreen} />

@@ -15,5 +15,11 @@
       "min": "En az ${min} karakter olmalıdır",
       "max": "En fazla ${max} karakter olmalıdır"
     }
-  }
+  },
+  "auth/invalid-email": "Geçersiz eposta",
+  "auth/user-disabled": "Kullanıcı devre dışı",
+  "auth/user-not-found": "Kullanıcı bulunamadı",
+  "auth/wrong-password": "Hatalı Şifre",
+  "auth/email-already-in-use": "Seçilen eposta adresi kullanılmaktadır",
+  "auth/weak-password": "Şifre yeteri kadar güvenli değil",
 }

@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import * as yup from 'yup';
-import { Text } from 'native-base';
+import { Text, Toast } from 'native-base';
 import BigLogo from 'ui/Logo/BigLogo';
 import FormContainer from 'ui/Form/FormContainer';
 import FormInput from 'ui/Form/FormInput';
@@ -51,7 +51,12 @@ export function SignInScreen() {
   }, []);
 
   const onSubmit = async (data: { username: string; password: string }) => {
-    signIn(data);
+    signIn(data).catch((err) => {
+      Toast.show({
+        text: t(err.code) + ' !',
+        duration: 6000,
+      });
+    });
   };
 
   return (

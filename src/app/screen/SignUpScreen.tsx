@@ -47,7 +47,7 @@ export function SignUpScreen() {
     return yup.object().shape({
       username: yup.string().email().required(),
       password: yup.string().min(6).max(16).required(),
-      passwordConfirmation: yup.string().oneOf([yup.ref('password'), null]),
+      passwordConfirmation: yup.string().oneOf([yup.ref('password'), null], t('validation.custom.passwordConfirmationMustMatch')),
     });
   }, []);
 

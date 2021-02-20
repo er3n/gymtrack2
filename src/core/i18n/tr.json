@@ -14,6 +14,9 @@
       "email": "Geçerli bir eposta olmalı.",
       "min": "En az ${min} karakter olmalıdır",
       "max": "En fazla ${max} karakter olmalıdır"
+    },
+    "custom": {
+      "passwordConfirmationMustMatch": "Şifreler eşleşmelidir"
     }
   },
   "auth/invalid-email": "Geçersiz eposta",

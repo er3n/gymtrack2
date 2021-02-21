@@ -17,6 +17,7 @@
   "weight": "Kilo (kg)",
   "injuries": "Yaralanmalar",
   "name": "İsim",
+  "update": "Güncelle",
   "validation": {
     "mixed": {
       "required": "Boş olamaz."

@@ -1,6 +1,21 @@
 import React from 'react';
 import { useAuthState } from 'core';
-import { Body, Card, CardItem, Container, Content, Icon, Button, Text } from 'native-base';
+import {
+  Body,
+  Card,
+  CardItem,
+  Container,
+  Content,
+  Icon,
+  Button,
+  Text,
+  ListItem,
+  Left,
+  Header,
+  Thumbnail,
+  Right,
+  Switch,
+} from 'native-base';
 import { useTranslation } from 'react-i18next';
 import { signOut } from '../../core/api';
 
@@ -10,15 +25,47 @@ export const SettingsScreen = () => {
 
   return (
     <Container>
+      <Header>
+        <Text>{t('settings')}</Text>
+      </Header>
       <Content>
-        <Card>
-          <CardItem>
-            <Body style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <Icon name='person-circle-outline' type='Ionicons' style={{ fontSize: 80, marginRight: 10 }} />
+        <Content>
+          <ListItem icon>
+            <Left>
+              <Icon name='person-circle-outline' type='Ionicons' />
+            </Left>
+            <Body>
               <Text>{authState.username}</Text>
             </Body>
-          </CardItem>
-        </Card>
+            <Right>
+              <Text>Şifre Değiştir</Text>
+              <Icon active name='arrow-forward' />
+            </Right>
+          </ListItem>
+          <ListItem icon>
+            <Left>
+              <Icon name='weight-lifter' type='MaterialCommunityIcons' />
+            </Left>
+            <Body>
+              <Text>Öğretmen modu</Text>
+            </Body>
+            <Right>
+              <Switch value={true} />
+            </Right>
+          </ListItem>
+          <ListItem icon>
+            <Left>
+              <Icon name='contacts' type='AntDesign' />
+            </Left>
+            <Body>
+              <Text>Hakkında</Text>
+            </Body>
+            <Right>
+              <Text>er3n</Text>
+              <Icon active name='arrow-forward' />
+            </Right>
+          </ListItem>
+        </Content>
         <Card>
           <CardItem>
             <Body>

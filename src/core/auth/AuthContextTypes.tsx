@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { FirebaseAuthTypes } from '@react-native-firebase/auth';
 
 export interface IAuthState {
+  uid?: string;
   status: 'AUTHENTICATED' | 'UNAUTHENTICATED' | 'LOADING';
   username?: string | null;
 }

@@ -1,10 +1,9 @@
 import React from 'react';
 import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SettingsScreen } from '../screen';
 import { useTranslation } from 'react-i18next';
-import { PersonnelSettingsScreen } from '../screen/settings/PersonelSettingsScreen';
+import { UserDetailsScreen } from '../screen/settings/UserDetailsScreen';
 
 const Stack = createStackNavigator<{ Home: undefined; About: undefined }>();
 
@@ -22,7 +21,7 @@ const SettingsNavigation = () => {
       />
       <Stack.Screen
         name='About'
-        component={PersonnelSettingsScreen}
+        component={UserDetailsScreen}
         options={{
           title: t('about'),
         }}

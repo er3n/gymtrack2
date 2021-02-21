@@ -5,6 +5,7 @@ import { DatePickerProps } from 'react-native-datepicker';
 
 export interface FormContainerProps {
   validationSchema?: Yup.AnyObjectSchema;
+  defaultValues?: any;
 }
 
 export interface FormInputProps extends NativeBase.Input {
@@ -15,7 +16,7 @@ export interface FormInputProps extends NativeBase.Input {
 
 export interface FormDatePickerProps extends DatePickerProps {
   name: string;
-  defaultValue?: string;
+  defaultValue?: Date;
   placeholderTx: string;
 }
 

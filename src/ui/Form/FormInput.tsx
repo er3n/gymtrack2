@@ -13,6 +13,7 @@ const FormInput: FC<FormInputProps> = ({ name, defaultValue = '', placeholderTx,
   const methods = useFormContext();
   const { t } = useTranslation();
 
+  console.log(defaultValue);
   return (
     <Controller
       name={name}

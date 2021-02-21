@@ -14,6 +14,7 @@ export const AuthProvider: FC<{ children: Element }> = ({ children }) => {
   const onAuthStateChanged = (userState: FirebaseAuthTypes.User | null) => {
     if (userState) {
       setAuthState({
+        uid: userState.uid,
         status: 'AUTHENTICATED',
         username: userState.email,
       });

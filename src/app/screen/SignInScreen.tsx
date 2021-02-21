@@ -52,6 +52,7 @@ export function SignInScreen() {
 
   const onSubmit = async (data: { username: string; password: string }) => {
     signIn(data).catch((err) => {
+      console.log(err);
       Toast.show({
         text: t(err.code) + ' !',
         duration: 6000,

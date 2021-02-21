@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { appStatusReducer, authenticationReducer, userDetailsReducer } from './feature';
+import { appSettingsReducer, appStatusReducer, authenticationReducer, userDetailsReducer } from './feature';
 
 export const store = configureStore({
   reducer: {
     appStatus: appStatusReducer,
+    appSettings: appSettingsReducer,
     authentication: authenticationReducer,
     userDetails: userDetailsReducer,
   },

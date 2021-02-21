@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import { updateUserDetailsAction, useAppDispatch, useAppSelector } from 'core';
 import { Body, Card, CardItem, Container, Content, Icon, Button, Text, ListItem, Left, Header, Right, Switch } from 'native-base';
 import { useTranslation } from 'react-i18next';
-import { getUserDetails, signOut } from '../../../core/api';
+import { getUserDetails, signOut, changeModeAction } from 'core';
 import { useNavigation } from '@react-navigation/native';
 
 export const SettingsScreen = () => {
   const { name } = useAppSelector((state) => state.userDetails);
   const { uid, username } = useAppSelector((state) => state.authentication);
+  const { mode } = useAppSelector((state) => state.appSettings);
   const dispatch = useAppDispatch();
 
   const { t } = useTranslation();
@@ -20,6 +21,10 @@ export const SettingsScreen = () => {
       }
     });
   }, [uid, dispatch]);
+
+  const onClickChangeMode = () => {
+    dispatch(changeModeAction(mode === 'TEACHER' ? 'STUDENT' : 'TEACHER'));
+  };
 
   return (
     <Container>
@@ -46,7 +51,7 @@ export const SettingsScreen = () => {
               <Text>Öğretmen modu</Text>
             </Body>
             <Right>
-              <Switch value={true} />
+              <Switch value={mode === 'TEACHER'} onValueChange={onClickChangeMode} />
             </Right>
           </ListItem>
           <ListItem icon onPress={() => navigation.navigate('About')}>

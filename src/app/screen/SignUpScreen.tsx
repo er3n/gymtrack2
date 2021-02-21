@@ -49,13 +49,14 @@ export function SignUpScreen() {
       password: yup.string().min(6).max(16).required(),
       passwordConfirmation: yup.string().oneOf([yup.ref('password'), null], t('validation.custom.passwordConfirmationMustMatch')),
     });
-  }, []);
+  }, [t]);
 
   const onSubmit = async (data: { username: string; password: string }) => {
     signUp(data).catch((err) => {
       Toast.show({
         text: t(err.code) + ' !',
         duration: 6000,
+        type: 'danger',
       });
     });
   };

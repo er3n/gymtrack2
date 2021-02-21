@@ -4,20 +4,18 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SignInScreen, SignUpScreen } from '../screen';
 import { RootNavigationTypes } from './RootNavigationTypes';
-import { useAuthState } from 'core';
 import { useTranslation } from 'react-i18next';
 import { AuthenticatedNavigation } from './AuthenticatedNavigation';
 
 const Stack = createStackNavigator<RootNavigationTypes>();
 
-const RootNavigation = () => {
-  const authState = useAuthState();
+const RootNavigation = ({ authenticated }: { authenticated: boolean }) => {
   const { t } = useTranslation();
 
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {authState.status != 'AUTHENTICATED' ? (
+        {!authenticated ? (
           <>
             <Stack.Screen
               name='SignIn'

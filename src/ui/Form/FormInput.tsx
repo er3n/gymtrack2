@@ -12,8 +12,6 @@ const ErrorText = styled(Text)`
 const FormInput: FC<FormInputProps> = ({ name, defaultValue = '', placeholderTx, ...rest }) => {
   const methods = useFormContext();
   const { t } = useTranslation();
-
-  console.log(defaultValue);
   return (
     <Controller
       name={name}

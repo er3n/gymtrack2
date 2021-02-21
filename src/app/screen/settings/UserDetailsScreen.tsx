@@ -6,8 +6,7 @@ import * as yup from 'yup';
 import styled from 'styled-components';
 import { View } from 'react-native';
 import { ProfileThumbnail, FormTextArea, FormDatePicker } from 'ui';
-import { useAuthState } from 'core';
-import { getUserDetails, IUserDetails, updateUserDetails } from 'core';
+import { getUserDetails, IUserDetails, updateUserDetails, useAppDispatch, useAppSelector, updateUserDetailsAction } from 'core';
 import { Toast } from 'native-base';
 import { useTranslation } from 'react-i18next';
 
@@ -18,7 +17,8 @@ const StyledContainer = styled(View)`
 `;
 
 export const UserDetailsScreen = () => {
-  const authState = useAuthState();
+  const uid = useAppSelector((state) => state.authentication.uid);
+  const dispatch = useAppDispatch();
   const { t } = useTranslation();
   const [userDetails, setUserDetails] = useState<IUserDetails>();
 
@@ -27,13 +27,14 @@ export const UserDetailsScreen = () => {
   }, []);
 
   useEffect(() => {
-    getUserDetails(authState.uid!).then((res) => {
+    getUserDetails(uid!).then((res) => {
       setUserDetails(res || {});
     });
-  }, [authState]);
+  }, [uid]);
 
   const onSubmit = async (data: IUserDetails) => {
-    await updateUserDetails(authState.uid!, data);
+    const updatedUserDetails = await updateUserDetails(uid!, data);
+    dispatch(updateUserDetailsAction(updatedUserDetails));
     Toast.show({
       text: t('updateSuccess'),
       type: 'success',

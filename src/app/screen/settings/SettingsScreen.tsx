@@ -1,37 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { useAuthState } from 'core';
-import {
-  Body,
-  Card,
-  CardItem,
-  Container,
-  Content,
-  Icon,
-  Button,
-  Text,
-  ListItem,
-  Left,
-  Header,
-  Thumbnail,
-  Right,
-  Switch,
-} from 'native-base';
+import React, { useEffect } from 'react';
+import { updateUserDetailsAction, useAppDispatch, useAppSelector } from 'core';
+import { Body, Card, CardItem, Container, Content, Icon, Button, Text, ListItem, Left, Header, Right, Switch } from 'native-base';
 import { useTranslation } from 'react-i18next';
-import { getUserDetails, IUserDetails, signOut } from '../../../core/api';
+import { getUserDetails, signOut } from '../../../core/api';
 import { useNavigation } from '@react-navigation/native';
 
 export const SettingsScreen = () => {
-  const authState = useAuthState();
+  const { name } = useAppSelector((state) => state.userDetails);
+  const { uid, username } = useAppSelector((state) => state.authentication);
+  const dispatch = useAppDispatch();
+
   const { t } = useTranslation();
   const navigation = useNavigation();
 
-  const [userDetails, setUserDetails] = useState<IUserDetails>();
-
   useEffect(() => {
-    getUserDetails(authState.uid!).then((res) => {
-      setUserDetails(res);
+    getUserDetails(uid!).then((res) => {
+      if (res) {
+        dispatch(updateUserDetailsAction(res));
+      }
     });
-  }, [authState]);
+  }, [uid, dispatch]);
 
   return (
     <Container>
@@ -43,7 +31,7 @@ export const SettingsScreen = () => {
               <Icon name='person-circle-outline' type='Ionicons' />
             </Left>
             <Body>
-              <Text>{authState.username}</Text>
+              <Text>{username}</Text>
             </Body>
             <Right>
               <Text>Şifre Değiştir</Text>
@@ -69,7 +57,7 @@ export const SettingsScreen = () => {
               <Text>{t('about')}</Text>
             </Body>
             <Right>
-              <Text>{userDetails?.name}</Text>
+              <Text>{name}</Text>
               <Icon active name='arrow-forward' />
             </Right>
           </ListItem>

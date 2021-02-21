@@ -16,6 +16,7 @@ export const getUserDetails = async (uid: string): Promise<IUserDetails | undefi
   }
   return response.data();
 };
-export const updateUserDetails = async (uid: string, userDetails: IUserDetails) => {
+export const updateUserDetails = async (uid: string, userDetails: IUserDetails): Promise<IUserDetails> => {
   await firestore().collection<IUserDetails>('userdetails').doc(uid).set(userDetails);
+  return userDetails;
 };

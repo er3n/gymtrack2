@@ -19,6 +19,7 @@
   "injuries": "Yaralanmalar",
   "name": "İsim",
   "update": "Güncelle",
+  "updateSuccess": "Güncelleme Başarılı",
   "validation": {
     "mixed": {
       "required": "Boş olamaz."

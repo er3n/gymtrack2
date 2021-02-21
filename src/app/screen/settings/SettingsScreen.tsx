@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'core';
 import {
   Body,
@@ -17,15 +17,21 @@ import {
   Switch,
 } from 'native-base';
 import { useTranslation } from 'react-i18next';
-import { signOut } from '../../../core/api';
+import { getUserDetails, IUserDetails, signOut } from '../../../core/api';
 import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootNavigationTypes } from '../../navigation/RootNavigationTypes';
 
 export const SettingsScreen = () => {
   const authState = useAuthState();
   const { t } = useTranslation();
   const navigation = useNavigation();
+
+  const [userDetails, setUserDetails] = useState<IUserDetails>();
+
+  useEffect(() => {
+    getUserDetails(authState.uid!).then((res) => {
+      setUserDetails(res);
+    });
+  }, [authState]);
 
   return (
     <Container>
@@ -63,7 +69,7 @@ export const SettingsScreen = () => {
               <Text>{t('about')}</Text>
             </Body>
             <Right>
-              <Text>er3n</Text>
+              <Text>{userDetails?.name}</Text>
               <Icon active name='arrow-forward' />
             </Right>
           </ListItem>

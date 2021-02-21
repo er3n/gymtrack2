@@ -17,17 +17,19 @@ import {
   Switch,
 } from 'native-base';
 import { useTranslation } from 'react-i18next';
-import { signOut } from '../../core/api';
+import { signOut } from '../../../core/api';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootNavigationTypes } from '../../navigation/RootNavigationTypes';
 
 export const SettingsScreen = () => {
   const authState = useAuthState();
   const { t } = useTranslation();
+  const navigation = useNavigation();
 
   return (
     <Container>
-      <Header>
-        <Text>{t('settings')}</Text>
-      </Header>
+      <Header />
       <Content>
         <Content>
           <ListItem icon>
@@ -53,12 +55,12 @@ export const SettingsScreen = () => {
               <Switch value={true} />
             </Right>
           </ListItem>
-          <ListItem icon>
+          <ListItem icon onPress={() => navigation.navigate('About')}>
             <Left>
               <Icon name='contacts' type='AntDesign' />
             </Left>
             <Body>
-              <Text>Hakkında</Text>
+              <Text>{t('about')}</Text>
             </Body>
             <Right>
               <Text>er3n</Text>
@@ -66,17 +68,17 @@ export const SettingsScreen = () => {
             </Right>
           </ListItem>
         </Content>
-        <Card>
-          <CardItem>
-            <Body>
-              <Button bordered danger style={{ width: '100%' }} onPress={() => signOut()}>
-                <Text> {t('signOut')}!</Text>
-                <Icon name='logout' type='AntDesign' />
-              </Button>
-            </Body>
-          </CardItem>
-        </Card>
       </Content>
+      <Card>
+        <CardItem>
+          <Body>
+            <Button bordered danger style={{ width: '100%' }} onPress={() => signOut()}>
+              <Text> {t('signOut')}!</Text>
+              <Icon name='logout' type='AntDesign' />
+            </Button>
+          </Body>
+        </CardItem>
+      </Card>
     </Container>
   );
 };

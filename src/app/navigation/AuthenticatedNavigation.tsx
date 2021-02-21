@@ -1,8 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { LessonsScreen, SettingsScreen, StatusScreen } from '../screen';
+import { LessonsScreen, StatusScreen } from '../screen';
 import { Icon } from 'native-base';
 import { useTranslation } from 'react-i18next';
+import SettingsNavigation from './SettingsNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -46,7 +47,7 @@ export const AuthenticatedNavigation = () => {
       />
       <Tab.Screen
         name='Settings'
-        component={SettingsScreen}
+        component={SettingsNavigation}
         options={{
           title: t('settings'),
         }}

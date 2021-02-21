@@ -10,6 +10,13 @@
   "status": "Durum",
   "lessons": "Dersler",
   "settings": "Ayarlar",
+  "about": "Hakkında",
+  "confirm": "Onayla",
+  "cancel": "İptal",
+  "age": "Yaş",
+  "weight": "Kilo (kg)",
+  "injuries": "Yaralanmalar",
+  "name": "İsim",
   "validation": {
     "mixed": {
       "required": "Boş olamaz."

@@ -8,7 +8,7 @@
   "signIn": "Giriş yap",
   "signOut": "Çıkış yap",
   "status": "Durum",
-  "lessons": "Dersler",
+  "lessons": "Antreman",
   "settings": "Ayarlar",
   "about": "Hakkında",
   "confirm": "Onayla",
@@ -25,6 +25,11 @@
   "currentPassword": "Şu anki şifre",
   "newPassword": "Yeni Şifre",
   "newPasswordConfirmation": "Yeni Şifre Onay",
+  "trainings": "Antremanlar",
+  "training": "Antreman",
+  "newTrainingProgram": "Yeni Antreman",
+  "trainingGroup": "Grup Oluştur",
+  "joinTrainingProgram": "Antreman'a katıl",
   "validation": {
     "mixed": {
       "required": "Boş olamaz."

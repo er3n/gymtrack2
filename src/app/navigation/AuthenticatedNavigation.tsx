@@ -1,9 +1,10 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { LessonsScreen, StatusScreen } from '../screen';
+import { StatusScreen } from '../screen';
 import { Icon } from 'native-base';
 import { useTranslation } from 'react-i18next';
 import SettingsNavigation from './SettingsNavigation';
+import TrainingNavigation from './TrainingNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,7 +19,7 @@ export const AuthenticatedNavigation = () => {
 
           if (route.name === 'Status') {
             iconName = focused ? 'home' : 'home';
-          } else if (route.name === 'Lessons') {
+          } else if (route.name === 'Trainings') {
             iconName = focused ? 'bars' : 'bars';
           } else if (route.name === 'Settings') {
             iconName = focused ? 'setting' : 'setting';
@@ -39,10 +40,10 @@ export const AuthenticatedNavigation = () => {
         }}
       />
       <Tab.Screen
-        name='Lessons'
-        component={LessonsScreen}
+        name='Trainings'
+        component={TrainingNavigation}
         options={{
-          title: t('lessons'),
+          title: t('trainings'),
         }}
       />
       <Tab.Screen

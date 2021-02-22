@@ -20,6 +20,11 @@
   "name": "İsim",
   "update": "Güncelle",
   "updateSuccess": "Güncelleme Başarılı",
+  "teacherMode": "Öğretmen Modu",
+  "changePassword": "Şifre Güncelle",
+  "currentPassword": "Şu anki şifre",
+  "newPassword": "Yeni Şifre",
+  "newPasswordConfirmation": "Yeni Şifre Onay",
   "validation": {
     "mixed": {
       "required": "Boş olamaz."

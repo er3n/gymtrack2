@@ -12,3 +12,14 @@ export const signUp = async (req: { username: string; password: string }) => {
 export const signOut = async () => {
   return auth().signOut();
 };
+
+export interface IUpdatePasswordRequest {
+  email: string;
+  currentPassword: string;
+  newPassword: string;
+}
+
+export const updatePassword = async ({ email, currentPassword, newPassword }: IUpdatePasswordRequest) => {
+  await auth().currentUser!.reauthenticateWithCredential(auth.EmailAuthProvider.credential(email, currentPassword));
+  await auth().currentUser?.updatePassword(newPassword);
+};

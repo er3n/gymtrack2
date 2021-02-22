@@ -31,7 +31,7 @@ export const SettingsScreen = () => {
       <Header />
       <Content>
         <Content>
-          <ListItem icon>
+          <ListItem icon onPress={() => navigation.navigate('ChangePassword')}>
             <Left>
               <Icon name='person-circle-outline' type='Ionicons' />
             </Left>
@@ -39,7 +39,7 @@ export const SettingsScreen = () => {
               <Text>{username}</Text>
             </Body>
             <Right>
-              <Text>Şifre Değiştir</Text>
+              <Text>{t('changePassword')}</Text>
               <Icon active name='arrow-forward' />
             </Right>
           </ListItem>
@@ -48,7 +48,7 @@ export const SettingsScreen = () => {
               <Icon name='weight-lifter' type='MaterialCommunityIcons' />
             </Left>
             <Body>
-              <Text>Öğretmen modu</Text>
+              <Text>{t('teacherMode')}</Text>
             </Body>
             <Right>
               <Switch value={mode === 'TEACHER'} onValueChange={onClickChangeMode} />

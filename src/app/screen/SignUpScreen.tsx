@@ -1,11 +1,8 @@
 import React, { useCallback, useMemo } from 'react';
 import * as yup from 'yup';
-import { Text, Toast } from 'native-base';
-import BigLogo from 'ui/Logo/BigLogo';
-import FormContainer from 'ui/Form/FormContainer';
-import FormInput from 'ui/Form/FormInput';
-import FormButton from 'ui/Form/FormButton';
 import styled from 'styled-components';
+import { Text, Toast } from 'native-base';
+import { BigLogo, FormContainer, FormInput, FormButton } from 'ui';
 import { SafeAreaView, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';

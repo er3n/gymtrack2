@@ -1,6 +1,3 @@
-import FormContainer from 'ui/Form/FormContainer';
-import FormInput from 'ui/Form/FormInput';
-import FormButton from 'ui/Form/FormButton';
 import React, { useMemo } from 'react';
 import * as yup from 'yup';
 import styled from 'styled-components';
@@ -8,6 +5,7 @@ import { View } from 'react-native';
 import { updatePassword, useAppSelector } from 'core';
 import { Text, Toast } from 'native-base';
 import { useTranslation } from 'react-i18next';
+import { FormContainer, FormInput, FormButton } from 'ui';
 
 const StyledContainer = styled(View)`
   margin-left: 10px;

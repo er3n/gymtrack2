@@ -4,7 +4,7 @@ import { useFormContext } from 'react-hook-form';
 import { FormButtonProps } from './FormTypes';
 import { useTranslation } from 'react-i18next';
 
-const FormButton: FC<FormButtonProps> = ({ onSubmit, tx }) => {
+export const FormButton: FC<FormButtonProps> = ({ onSubmit, tx }) => {
   const { handleSubmit } = useFormContext();
   const { t } = useTranslation();
 
@@ -28,5 +28,3 @@ const FormButton: FC<FormButtonProps> = ({ onSubmit, tx }) => {
     </Item>
   );
 };
-
-export default FormButton;

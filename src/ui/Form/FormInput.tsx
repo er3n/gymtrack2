@@ -9,7 +9,7 @@ const ErrorText = styled(Text)`
   color: #ff0033;
 `;
 
-const FormInput: FC<FormInputProps> = ({ name, defaultValue = '', placeholderTx, ...rest }) => {
+export const FormInput: FC<FormInputProps> = ({ name, defaultValue = '', placeholderTx, ...rest }) => {
   const methods = useFormContext();
   const { t } = useTranslation();
   return (
@@ -29,5 +29,3 @@ const FormInput: FC<FormInputProps> = ({ name, defaultValue = '', placeholderTx,
     />
   );
 };
-
-export default FormInput;

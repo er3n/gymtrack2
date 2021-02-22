@@ -1,12 +1,10 @@
-import FormContainer from 'ui/Form/FormContainer';
-import FormInput from 'ui/Form/FormInput';
-import FormButton from 'ui/Form/FormButton';
 import React, { useEffect, useMemo, useState } from 'react';
 import * as yup from 'yup';
 import styled from 'styled-components';
 import { View } from 'react-native';
 import { ProfileThumbnail, FormTextArea, FormDatePicker } from 'ui';
 import { getUserDetails, IUserDetails, updateUserDetails, useAppDispatch, useAppSelector, updateUserDetailsAction } from 'core';
+import { FormContainer, FormInput, FormButton } from 'ui';
 import { Toast } from 'native-base';
 import { useTranslation } from 'react-i18next';
 

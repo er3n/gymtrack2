@@ -12,12 +12,10 @@ const LogoText = styled(Text)`
   font-style: italic;
 `;
 
-const BigLogo = () => {
+export const BigLogo = () => {
   return (
     <LogoContainer>
       <LogoText>Gym Track</LogoText>
     </LogoContainer>
   );
 };
-
-export default BigLogo;

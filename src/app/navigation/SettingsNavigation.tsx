@@ -1,12 +1,11 @@
 import React from 'react';
 import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
-import { SettingsScreen } from '../screen';
 import { useTranslation } from 'react-i18next';
-import { UserDetailsScreen } from '../screen/settings/UserDetailsScreen';
-import { ChangePasswordScreen } from '../screen/settings/ChangePasswordScreen';
+import { UserDetailsScreen, ChangePasswordScreen, SettingsScreen } from '../screen';
+import { SettingsNavigations } from './NavigationTypes';
 
-const Stack = createStackNavigator<{ Home: undefined; About: undefined; ChangePassword: undefined }>();
+const Stack = createStackNavigator<SettingsNavigations>();
 
 const SettingsNavigation = () => {
   const { t } = useTranslation();

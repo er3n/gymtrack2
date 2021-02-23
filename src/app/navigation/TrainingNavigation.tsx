@@ -6,13 +6,8 @@ import { TrainingProgramListScreen } from '../screen/training/TrainingProgramLis
 import { TrainingProgramDetailScreen } from '../screen/training/TrainingProgramDetailScreen';
 import { TrainingGroupScreen } from '../screen/training/TrainingGroupScreen';
 import { TrainingProgramJoinScreen } from '../screen/training/TrainingProgramJoinScreen';
+import { TrainingNavigationTypes } from './NavigationTypes';
 
-export type TrainingNavigationTypes = {
-  TrainingProgramList: undefined;
-  TrainingProgramDetail: undefined;
-  TrainingGroup: undefined;
-  TrainingProgramJoin: undefined;
-};
 const Stack = createStackNavigator<TrainingNavigationTypes>();
 
 const TrainingNavigation = () => {

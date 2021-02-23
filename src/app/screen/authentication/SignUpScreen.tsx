@@ -1,14 +1,14 @@
 import React, { useCallback, useMemo } from 'react';
 import * as yup from 'yup';
-import { Text, Toast } from 'native-base';
 import styled from 'styled-components';
+import { Text, Toast } from 'native-base';
+import { BigLogo, FormContainer, FormInput, FormButton } from 'ui';
 import { SafeAreaView, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootNavigationTypes } from '../navigation/RootNavigationTypes';
 import { useTranslation } from 'react-i18next';
-import { signIn } from 'core';
-import { BigLogo, FormContainer, FormInput, FormButton } from 'ui';
+import { signUp } from 'core';
+import { UnAuthenticatedNavigations } from '../../navigation/NavigationTypes';
 
 const StyledContainer = styled(SafeAreaView)`
   height: 100%;
@@ -26,27 +26,30 @@ const ToSignUpContainer = styled(View)`
   justify-content: center;
 `;
 
+const ToSignUpDescription = styled(Text)``;
+
 const ToSignUpLink = styled(Text)`
   font-weight: bold;
 `;
-export function SignInScreen() {
+export const SignUpScreen = () => {
   const { t } = useTranslation();
 
-  const navigation = useNavigation<StackNavigationProp<RootNavigationTypes>>();
+  const navigation = useNavigation<StackNavigationProp<UnAuthenticatedNavigations>>();
 
-  const navigateToSignUp = useCallback(() => {
-    navigation.replace('SignUp');
+  const navigateToSignIn = useCallback(() => {
+    navigation.replace('SignIn');
   }, [navigation]);
 
-  const signInValidationSchema = useMemo(() => {
+  const signUpValidationSchema = useMemo(() => {
     return yup.object().shape({
       username: yup.string().email().required(),
       password: yup.string().min(6).max(16).required(),
+      passwordConfirmation: yup.string().oneOf([yup.ref('password'), null], t('validation.custom.passwordConfirmationMustMatch')),
     });
-  }, []);
+  }, [t]);
 
   const onSubmit = async (data: { username: string; password: string }) => {
-    signIn(data).catch((err) => {
+    signUp(data).catch((err) => {
       Toast.show({
         text: t(err.code) + ' !',
         duration: 6000,
@@ -59,16 +62,17 @@ export function SignInScreen() {
     <StyledContainer>
       <BigLogo />
       <StyledContent>
-        <FormContainer validationSchema={signInValidationSchema}>
+        <FormContainer validationSchema={signUpValidationSchema}>
           <FormInput name='username' placeholderTx='email' autoCompleteType='email' />
           <FormInput name='password' placeholderTx='password' secureTextEntry />
-          <FormButton onSubmit={onSubmit} tx='signIn' />
+          <FormInput name='passwordConfirmation' placeholderTx='passwordConfirmation' secureTextEntry />
+          <FormButton onSubmit={onSubmit} tx='signUp' />
         </FormContainer>
         <ToSignUpContainer>
-          <Text>{t('dontHaveAccount')}</Text>
-          <ToSignUpLink onPress={navigateToSignUp}> {t('signUp')}!</ToSignUpLink>
+          <ToSignUpDescription>{t('alreadyMember')}</ToSignUpDescription>
+          <ToSignUpLink onPress={navigateToSignIn}> {t('signIn')}!</ToSignUpLink>
         </ToSignUpContainer>
       </StyledContent>
     </StyledContainer>
   );
-}
+};

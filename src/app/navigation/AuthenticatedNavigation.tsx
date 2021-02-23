@@ -1,12 +1,13 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { StatusScreen } from '../screen';
 import { Icon } from 'native-base';
 import { useTranslation } from 'react-i18next';
 import SettingsNavigation from './SettingsNavigation';
 import TrainingNavigation from './TrainingNavigation';
+import { AuthenticatedNavigations } from './NavigationTypes';
+import { DashboardNavigation } from './DashboardNavigation';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<AuthenticatedNavigations>();
 
 export const AuthenticatedNavigation = () => {
   const { t } = useTranslation();
@@ -34,7 +35,7 @@ export const AuthenticatedNavigation = () => {
       }}>
       <Tab.Screen
         name='Status'
-        component={StatusScreen}
+        component={DashboardNavigation}
         options={{
           title: t('status'),
         }}

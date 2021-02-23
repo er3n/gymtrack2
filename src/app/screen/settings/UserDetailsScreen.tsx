@@ -1,9 +1,9 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import * as yup from 'yup';
 import styled from 'styled-components';
 import { View } from 'react-native';
 import { ProfileThumbnail, FormTextArea, FormDatePicker } from 'ui';
-import { getUserDetails, IUserDetails, updateUserDetails, useAppDispatch, useAppSelector, updateUserDetailsAction } from 'core';
+import { IUserDetails, updateUserDetails, useAppDispatch, useAppSelector, updateUserDetailsAction } from 'core';
 import { FormContainer, FormInput, FormButton } from 'ui';
 import { Toast } from 'native-base';
 import { useTranslation } from 'react-i18next';
@@ -16,19 +16,13 @@ const StyledContainer = styled(View)`
 
 export const UserDetailsScreen = () => {
   const uid = useAppSelector((state) => state.authentication.uid);
+  const userDetails = useAppSelector((state) => state.userDetails);
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
-  const [userDetails, setUserDetails] = useState<IUserDetails>();
 
   const validationSchema = useMemo(() => {
     return yup.object().shape({});
   }, []);
-
-  useEffect(() => {
-    getUserDetails(uid!).then((res) => {
-      setUserDetails(res || {});
-    });
-  }, [uid]);
 
   const onSubmit = async (data: IUserDetails) => {
     const updatedUserDetails = await updateUserDetails(uid!, data);

@@ -30,6 +30,7 @@
   "newTrainingProgram": "Yeni Antreman",
   "trainingGroup": "Grup Oluştur",
   "joinTrainingProgram": "Antreman'a katıl",
+  "select": "Seçiniz",
   "validation": {
     "mixed": {
       "required": "Boş olamaz."

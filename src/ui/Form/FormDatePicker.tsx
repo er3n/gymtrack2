@@ -28,7 +28,7 @@ export const FormDatePicker: FC<FormDatePickerProps> = ({ name, defaultValue = '
             <DateTimePickerModal
               onCancel={() => setShow(false)}
               onConfirm={(date) => {
-                onChange(date);
+                onChange(date.toLocaleDateString());
                 setShow(Platform.OS === 'ios');
                 setShow(false);
               }}
@@ -45,7 +45,7 @@ export const FormDatePicker: FC<FormDatePickerProps> = ({ name, defaultValue = '
             <Button transparent onPress={() => setShow(true)}>
               <Icon name='calendar' type='AntDesign' />
             </Button>
-            <Text style={{ color: 'grey' }}>{!value ? t(placeholderTx) : value.toLocaleDateString()}</Text>
+            <Text style={{ color: 'grey' }}>{!value ? t(placeholderTx) : value}</Text>
             {!!methods.errors[name] && <Icon name='close-circle' />}
           </Item>
           {methods.errors[name] && <ErrorText>{methods.errors[name].message}</ErrorText>}

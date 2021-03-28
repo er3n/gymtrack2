@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { updateUserDetailsAction, useAppDispatch, useAppSelector } from 'core';
+import { signOutAction, updateUserDetailsAction, useAppDispatch, useAppSelector } from 'core';
 import { Body, Card, CardItem, Container, Content, Icon, Button, Text, ListItem, Left, Header, Right, Switch } from 'native-base';
 import { useTranslation } from 'react-i18next';
-import { getUserDetails, signOut, changeModeAction } from 'core';
+import { getUserDetails, changeModeAction } from 'core';
 import { useNavigation } from '@react-navigation/native';
 
 export const SettingsScreen = () => {
@@ -71,7 +71,7 @@ export const SettingsScreen = () => {
       <Card>
         <CardItem>
           <Body>
-            <Button bordered danger style={{ width: '100%' }} onPress={() => signOut()}>
+            <Button bordered danger style={{ width: '100%' }} onPress={() => dispatch(signOutAction())}>
               <Text> {t('signOut')}!</Text>
               <Icon name='logout' type='AntDesign' />
             </Button>

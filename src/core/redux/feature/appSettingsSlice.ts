@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { signOutAction } from './authenticationSlice';
 
 interface AppSettingsSlice {
   mode: 'TEACHER' | 'STUDENT';
@@ -15,6 +16,11 @@ export const appSettingsSlice = createSlice({
     changeModeAction: (state, action: PayloadAction<'TEACHER' | 'STUDENT'>) => {
       state.mode = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(signOutAction.fulfilled, (state) => {
+      state.mode = initialState.mode;
+    });
   },
 });
 

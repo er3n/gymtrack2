@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { signOutAction } from './authenticationSlice';
 
 interface UserDetailsState {
   name?: string;
-  birthDate?: Date;
+  birthDate?: string;
   weight?: string;
   injuries?: string;
 }
@@ -20,6 +21,14 @@ export const userDetailsSlice = createSlice({
       state.weight = weight;
       state.injuries = injuries;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(signOutAction.fulfilled, (state) => {
+      state.name = initialState.name;
+      state.birthDate = initialState.birthDate;
+      state.weight = initialState.weight;
+      state.injuries = initialState.injuries;
+    });
   },
 });
 

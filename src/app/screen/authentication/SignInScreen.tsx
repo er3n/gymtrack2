@@ -60,8 +60,8 @@ export const SignInScreen = () => {
       <BigLogo />
       <StyledContent>
         <FormContainer validationSchema={signInValidationSchema}>
-          <FormInput name='username' placeholderTx='email' autoCompleteType='email' />
-          <FormInput name='password' placeholderTx='password' secureTextEntry />
+          <FormInput name='username' placeholderTx='email' autoCompleteType='email' textContentType="oneTimeCode" autoCapitalize="none" />
+          <FormInput name='password' placeholderTx='password' secureTextEntry textContentType="oneTimeCode" />
           <FormButton onSubmit={onSubmit} tx='signIn' />
         </FormContainer>
         <ToSignUpContainer>

@@ -1,6 +1,6 @@
+import { store } from 'core';
 import React from 'react';
 import 'react-native-gesture-handler';
-import { store } from 'core';
 import { Provider } from 'react-redux';
 import AppContainer from './AppContainer';
 

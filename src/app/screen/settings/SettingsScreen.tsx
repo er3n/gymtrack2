@@ -1,9 +1,13 @@
-import React, { useEffect } from 'react';
-import { signOutAction, updateUserDetailsAction, useAppDispatch, useAppSelector } from 'core';
-import { Body, Card, CardItem, Container, Content, Icon, Button, Text, ListItem, Left, Header, Right, Switch } from 'native-base';
-import { useTranslation } from 'react-i18next';
-import { getUserDetails, changeModeAction } from 'core';
 import { useNavigation } from '@react-navigation/native';
+import { changeModeAction, getUserDetails, signOutAction, updateUserDetailsAction, useAppDispatch, useAppSelector } from 'core';
+import { Body, Button, Card, CardItem, Container, Content, Header, Icon, Left, ListItem, Right, Switch, Text } from 'native-base';
+import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
+
+const FullWidthButton = styled(Button)`
+  width: 100%;
+`;
 
 export const SettingsScreen = () => {
   const { name } = useAppSelector((state) => state.userDetails);
@@ -71,10 +75,10 @@ export const SettingsScreen = () => {
       <Card>
         <CardItem>
           <Body>
-            <Button bordered danger style={{ width: '100%' }} onPress={() => dispatch(signOutAction())}>
+            <FullWidthButton bordered danger onPress={() => dispatch(signOutAction())}>
               <Text> {t('signOut')}!</Text>
               <Icon name='logout' type='AntDesign' />
-            </Button>
+            </FullWidthButton>
           </Body>
         </CardItem>
       </Card>

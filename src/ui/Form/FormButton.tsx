@@ -1,8 +1,18 @@
+import { Button, Spinner, Text } from 'native-base';
 import React, { FC, useState } from 'react';
-import { Button, Item, Spinner, Text } from 'native-base';
 import { useFormContext } from 'react-hook-form';
-import { FormButtonProps } from './FormTypes';
 import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
+import { FormItemContainer } from './FormStyles';
+import { FormButtonProps } from './FormTypes';
+
+const FullWidthButton = styled(Button)`
+  width: 100%;
+`;
+
+const BoldText = styled(Text)`
+  font-weight: bold;
+`;
 
 export const FormButton: FC<FormButtonProps> = ({ onSubmit, tx }) => {
   const { handleSubmit } = useFormContext();
@@ -20,11 +30,11 @@ export const FormButton: FC<FormButtonProps> = ({ onSubmit, tx }) => {
   };
 
   return (
-    <Item style={{ marginTop: 20, marginLeft: 0 }}>
-      <Button block style={{ width: '100%' }} onPress={handleSubmit(onSubmitWrapper)} disabled={active}>
-        <Text style={{ fontWeight: 'bold' }}> {t(tx)} </Text>
+    <FormItemContainer>
+      <FullWidthButton onPress={handleSubmit(onSubmitWrapper)} disabled={active}>
+        <BoldText> {t(tx)} </BoldText>
         {active && <Spinner color='white' />}
-      </Button>
-    </Item>
+      </FullWidthButton>
+    </FormItemContainer>
   );
 };

@@ -1,17 +1,27 @@
+import { Button, Icon, Text } from 'native-base';
 import React, { FC, useState } from 'react';
-import { Button, Icon, Item, Text } from 'native-base';
 import { Controller, useFormContext } from 'react-hook-form';
-import DateTimePickerModal from 'react-native-modal-datetime-picker';
-import { FormDatePickerProps } from './FormTypes';
 import { useTranslation } from 'react-i18next';
-import styled from 'styled-components';
 import { Platform, View } from 'react-native';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import styled from 'styled-components';
+import { FormItemContainer } from './FormStyles';
+import { FormDatePickerProps } from './FormTypes';
 
 const ErrorText = styled(Text)`
   color: #ff0033;
 `;
 
-export const FormDatePicker: FC<FormDatePickerProps> = ({ name, defaultValue = '', placeholderTx, ...rest }) => {
+const DatePickerContainer = styled(View)`
+  position: absolute;
+  top: 100px;
+`;
+
+const CloseText = styled(Text)`
+  color: grey;
+`;
+
+export const FormDatePicker: FC<FormDatePickerProps> = ({ name, defaultValue = '', placeholderTx }) => {
   const methods = useFormContext();
   const { t } = useTranslation();
 
@@ -24,7 +34,7 @@ export const FormDatePicker: FC<FormDatePickerProps> = ({ name, defaultValue = '
       defaultValue={defaultValue}
       render={({ value, onChange }) => (
         <>
-          <View style={{ position: 'absolute', top: 100 }}>
+          <DatePickerContainer>
             <DateTimePickerModal
               onCancel={() => setShow(false)}
               onConfirm={(date) => {
@@ -40,14 +50,14 @@ export const FormDatePicker: FC<FormDatePickerProps> = ({ name, defaultValue = '
               cancelTextIOS={t('cancel')}
               headerTextIOS={t('select')}
             />
-          </View>
-          <Item style={{ marginTop: 20, marginLeft: 0 }} error={!!methods.errors[name]}>
+          </DatePickerContainer>
+          <FormItemContainer>
             <Button transparent onPress={() => setShow(true)}>
               <Icon name='calendar' type='AntDesign' />
             </Button>
-            <Text style={{ color: 'grey' }}>{!value ? t(placeholderTx) : value}</Text>
+            <CloseText>{!value ? t(placeholderTx) : value}</CloseText>
             {!!methods.errors[name] && <Icon name='close-circle' />}
-          </Item>
+          </FormItemContainer>
           {methods.errors[name] && <ErrorText>{methods.errors[name].message}</ErrorText>}
         </>
       )}

@@ -1,13 +1,13 @@
-import React, { useCallback, useMemo } from 'react';
-import * as yup from 'yup';
-import { Text, Toast } from 'native-base';
-import styled from 'styled-components';
-import { SafeAreaView, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { useTranslation } from 'react-i18next';
 import { signIn } from 'core';
-import { BigLogo, FormContainer, FormInput, FormButton } from 'ui';
+import { Text, Toast } from 'native-base';
+import React, { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { SafeAreaView, View } from 'react-native';
+import styled from 'styled-components';
+import { BigLogo, FormButton, FormContainer, FormInput } from 'ui';
+import * as yup from 'yup';
 import { UnAuthenticatedNavigations } from '../../navigation/NavigationTypes';
 
 const StyledContainer = styled(SafeAreaView)`
@@ -60,8 +60,8 @@ export const SignInScreen = () => {
       <BigLogo />
       <StyledContent>
         <FormContainer validationSchema={signInValidationSchema}>
-          <FormInput name='username' placeholderTx='email' autoCompleteType='email' textContentType="oneTimeCode" autoCapitalize="none" />
-          <FormInput name='password' placeholderTx='password' secureTextEntry textContentType="oneTimeCode" />
+          <FormInput name='username' placeholderTx='email' autoCompleteType='email' textContentType='oneTimeCode' autoCapitalize='none' />
+          <FormInput name='password' placeholderTx='password' secureTextEntry textContentType='oneTimeCode' />
           <FormButton onSubmit={onSubmit} tx='signIn' />
         </FormContainer>
         <ToSignUpContainer>

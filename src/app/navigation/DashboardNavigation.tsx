@@ -1,8 +1,8 @@
-import React from 'react';
-import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
-import { DashboardScreen } from '../screen';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+import 'react-native-gesture-handler';
+import { DashboardScreen } from '../screen';
 import { DashboardNavigations } from './NavigationTypes';
 
 const Stack = createStackNavigator<DashboardNavigations>();

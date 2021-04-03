@@ -1,7 +1,6 @@
 import { NativeBase } from 'native-base';
-import Yup from 'yup';
 import { SubmitHandler } from 'react-hook-form/dist/types/form';
-import { DatePickerProps } from 'react-native-datepicker';
+import Yup from 'yup';
 
 export interface FormContainerProps {
   validationSchema?: Yup.AnyObjectSchema;
@@ -14,7 +13,7 @@ export interface FormInputProps extends NativeBase.Input {
   placeholderTx: string;
 }
 
-export interface FormDatePickerProps extends DatePickerProps {
+export interface FormDatePickerProps {
   name: string;
   defaultValue?: Date;
   placeholderTx: string;

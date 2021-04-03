@@ -1,9 +1,9 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { Body, Button, Container, Header, Icon, Left, Title } from 'native-base';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { TrainingNavigationTypes } from '../../navigation/TrainingNavigation';
+import { TrainingNavigationTypes } from 'app/navigation/NavigationTypes';
+import { Body, Button, Container, Header, Icon, Left, Title } from 'native-base';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const TrainingProgramJoinScreen = () => {
   const { t } = useTranslation();

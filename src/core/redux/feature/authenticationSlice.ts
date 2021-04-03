@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { signOut } from 'core/api';
-import { signIn } from '../../index';
 
 interface AuthenticationState {
   status: 'LOADING' | 'AUTHENTICATED' | 'UNAUTHENTICATED';
@@ -12,9 +11,9 @@ const initialState: AuthenticationState = {
   status: 'LOADING',
 };
 
-export const signOutAction = createAsyncThunk('authentication/signOut', async (state, thunkApi) => {
+export const signOutAction = createAsyncThunk('authentication/signOut', async () => {
   await signOut();
-})
+});
 
 export const authenticationSlice = createSlice({
   name: 'authentication',
@@ -25,7 +24,6 @@ export const authenticationSlice = createSlice({
       state.uid = action.payload.uid;
       state.username = action.payload.username;
     },
-
   },
   extraReducers: (builder) => {
     builder.addCase(signOutAction.fulfilled, (state) => {

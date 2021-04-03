@@ -1,11 +1,11 @@
-import React from 'react';
-import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { TrainingProgramListScreen } from '../screen/training/TrainingProgramListScreen';
-import { TrainingProgramDetailScreen } from '../screen/training/TrainingProgramDetailScreen';
+import 'react-native-gesture-handler';
 import { TrainingGroupScreen } from '../screen/training/TrainingGroupScreen';
+import { TrainingProgramDetailScreen } from '../screen/training/TrainingProgramDetailScreen';
 import { TrainingProgramJoinScreen } from '../screen/training/TrainingProgramJoinScreen';
+import { TrainingProgramListScreen } from '../screen/training/TrainingProgramListScreen';
 import { TrainingNavigationTypes } from './NavigationTypes';
 
 const Stack = createStackNavigator<TrainingNavigationTypes>();

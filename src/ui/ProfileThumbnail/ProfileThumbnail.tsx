@@ -1,5 +1,5 @@
-import React from 'react';
 import { Thumbnail } from 'native-base';
+import React from 'react';
 
 const blankPerson = require('./blankperson.png');
 

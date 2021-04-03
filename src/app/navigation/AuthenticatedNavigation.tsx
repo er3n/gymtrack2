@@ -1,11 +1,11 @@
-import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Icon } from 'native-base';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { DashboardNavigation } from './DashboardNavigation';
+import { AuthenticatedNavigations } from './NavigationTypes';
 import SettingsNavigation from './SettingsNavigation';
 import TrainingNavigation from './TrainingNavigation';
-import { AuthenticatedNavigations } from './NavigationTypes';
-import { DashboardNavigation } from './DashboardNavigation';
 
 const Tab = createBottomTabNavigator<AuthenticatedNavigations>();
 

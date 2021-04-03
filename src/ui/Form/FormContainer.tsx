@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
-import { Form } from 'native-base';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Form } from 'native-base';
+import React, { FC } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 import { FormContainerProps } from './FormTypes';
-import { useForm, FormProvider } from 'react-hook-form';
 
 export const FormContainer: FC<FormContainerProps> = ({ children, validationSchema, defaultValues }) => {
   const methods = useForm({

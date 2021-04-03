@@ -1,10 +1,10 @@
+import auth from '@react-native-firebase/auth';
+import { initConfig, setReadyAction, signInAction, signOutAction, useAppDispatch, useAppSelector } from 'core';
+import { Root } from 'native-base';
 import React, { useEffect } from 'react';
 import 'react-native-gesture-handler';
-import { Root } from 'native-base';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { initConfig, useAppSelector, useAppDispatch, signOutAction, signInAction, setReadyAction } from 'core';
 import RootNavigation from './navigation/RootNavigation';
-import auth from '@react-native-firebase/auth';
 
 const AppContainer = () => {
   const dispatch = useAppDispatch();

@@ -1,17 +1,20 @@
-import React, { useMemo } from 'react';
-import * as yup from 'yup';
-import styled from 'styled-components';
-import { View } from 'react-native';
-import { ProfileThumbnail, FormTextArea, FormDatePicker } from 'ui';
-import { IUserDetails, updateUserDetails, useAppDispatch, useAppSelector, updateUserDetailsAction } from 'core';
-import { FormContainer, FormInput, FormButton } from 'ui';
+import { IUserDetails, updateUserDetails, updateUserDetailsAction, useAppDispatch, useAppSelector } from 'core';
 import { Toast } from 'native-base';
+import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { View } from 'react-native';
+import styled from 'styled-components';
+import { FormButton, FormContainer, FormDatePicker, FormInput, FormTextArea, ProfileThumbnail } from 'ui';
+import * as yup from 'yup';
 
 const StyledContainer = styled(View)`
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 20px;
+`;
+
+const CenteredView = styled(View)`
+  align-items: center;
 `;
 
 export const UserDetailsScreen = () => {
@@ -40,9 +43,9 @@ export const UserDetailsScreen = () => {
 
   return (
     <StyledContainer>
-      <View style={{ alignItems: 'center' }}>
+      <CenteredView>
         <ProfileThumbnail />
-      </View>
+      </CenteredView>
       <FormContainer validationSchema={validationSchema} defaultValues={userDetails}>
         <FormInput name='name' placeholderTx='name' />
         <FormDatePicker name='birthDate' placeholderTx='birthDate' />

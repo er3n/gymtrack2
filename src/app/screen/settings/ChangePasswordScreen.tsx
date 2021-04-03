@@ -1,16 +1,20 @@
-import React, { useMemo } from 'react';
-import * as yup from 'yup';
-import styled from 'styled-components';
-import { View } from 'react-native';
 import { updatePassword, useAppSelector } from 'core';
 import { Text, Toast } from 'native-base';
+import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FormContainer, FormInput, FormButton } from 'ui';
+import { View } from 'react-native';
+import styled from 'styled-components';
+import { FormButton, FormContainer, FormInput } from 'ui';
+import * as yup from 'yup';
 
 const StyledContainer = styled(View)`
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 20px;
+`;
+
+const CenteredView = styled(View)`
+  align-items: center;
 `;
 
 export const ChangePasswordScreen = () => {
@@ -45,9 +49,9 @@ export const ChangePasswordScreen = () => {
 
   return (
     <StyledContainer>
-      <View style={{ alignItems: 'center' }}>
+      <CenteredView>
         <Text>{email}</Text>
-      </View>
+      </CenteredView>
       <FormContainer validationSchema={validationSchema}>
         <FormInput name='currentPassword' placeholderTx='currentPassword' secureTextEntry />
         <FormInput name='newPassword' placeholderTx='newPassword' secureTextEntry />

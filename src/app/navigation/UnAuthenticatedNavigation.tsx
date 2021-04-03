@@ -1,8 +1,8 @@
-import React from 'react';
-import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
-import { SignInScreen, SignUpScreen } from '../screen';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+import 'react-native-gesture-handler';
+import { SignInScreen, SignUpScreen } from '../screen';
 import { UnAuthenticatedNavigations } from './NavigationTypes';
 
 const Stack = createStackNavigator<UnAuthenticatedNavigations>();

@@ -49,5 +49,5 @@
   "auth/user-not-found": "Kullanıcı bulunamadı",
   "auth/wrong-password": "Hatalı Şifre",
   "auth/email-already-in-use": "Seçilen eposta adresi kullanılmaktadır",
-  "auth/weak-password": "Şifre yeteri kadar güvenli değil",
+  "auth/weak-password": "Şifre yeteri kadar güvenli değil"
 }

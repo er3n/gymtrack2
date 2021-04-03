@@ -12,7 +12,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint:style": "prettier --check 'src/**/**.{js,ts,jsx,tsx}'",
-    "lint:code": "eslint src/ --ext .js,.jsx,.ts,.tsx",
+    "lint:code": "eslint src/ --ext .js,.jsx,.ts,.tsx --fix",
     "lint": "npm run lint:style && npm run lint:code"
   },
   "dependencies": {
@@ -54,6 +54,7 @@
     "eslint": "^6.5.1",
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
+    "prettier-plugin-organize-imports": "1.1.1",
     "react-test-renderer": "16.13.1",
     "typescript": "^3.8.3"
   },

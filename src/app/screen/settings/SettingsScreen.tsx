@@ -1,6 +1,6 @@
 import { useAppNavigation } from 'app/navigation/useAppNavigation';
 import { changeModeAction, getUserDetails, signOutAction, updateUserDetailsAction, useAppDispatch, useAppSelector } from 'core';
-import { Body, Button, Card, CardItem, Container, Content, Header, Icon, Left, ListItem, Right, Switch, Text } from 'native-base';
+import { Body, Button, Card, CardItem, Container, Content, Header, Icon, Left, ListItem, Right, Switch, Text, Title } from 'native-base';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
@@ -32,7 +32,11 @@ export const SettingsScreen = () => {
 
   return (
     <Container>
-      <Header />
+      <Header>
+        <Body>
+          <Title>{t('settings')}</Title>
+        </Body>
+      </Header>
       <Content>
         <Content>
           <ListItem icon onPress={() => navigation.navigate('ChangePassword')}>

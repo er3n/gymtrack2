@@ -4,7 +4,7 @@ import { Root } from 'native-base';
 import React, { useEffect } from 'react';
 import 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import RootNavigation from './navigation/RootNavigation';
+import AppNavigation from './navigation/AppNavigation';
 
 const AppContainer = () => {
   const dispatch = useAppDispatch();
@@ -40,7 +40,7 @@ const AppContainer = () => {
   return (
     <SafeAreaProvider>
       <Root>
-        <RootNavigation authenticated={authenticated} />
+        <AppNavigation authenticated={authenticated} />
       </Root>
     </SafeAreaProvider>
   );

@@ -1,13 +1,11 @@
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { TrainingNavigationTypes } from 'app/navigation/NavigationTypes';
+import { useAppNavigation } from 'app/navigation/useAppNavigation';
 import { Body, Button, Container, Header, Icon, Left, Title } from 'native-base';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 export const TrainingGroupScreen = () => {
   const { t } = useTranslation();
-  const navigation = useNavigation<StackNavigationProp<TrainingNavigationTypes>>();
+  const navigation = useAppNavigation();
 
   return (
     <Container>

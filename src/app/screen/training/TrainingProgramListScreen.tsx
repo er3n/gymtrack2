@@ -1,13 +1,11 @@
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { TrainingNavigationTypes } from 'app/navigation/NavigationTypes';
+import { useAppNavigation } from 'app/navigation/useAppNavigation';
 import { ActionSheet, Body, Button, Container, Header, Icon, Right, Title } from 'native-base';
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export const TrainingProgramListScreen = () => {
   const { t } = useTranslation();
-  const navigator = useNavigation<StackNavigationProp<TrainingNavigationTypes>>();
+  const navigator = useAppNavigation();
 
   const newActionButtons = useMemo(() => {
     return [

@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/native';
+import { useAppNavigation } from 'app/navigation/useAppNavigation';
 import { changeModeAction, getUserDetails, signOutAction, updateUserDetailsAction, useAppDispatch, useAppSelector } from 'core';
 import { Body, Button, Card, CardItem, Container, Content, Header, Icon, Left, ListItem, Right, Switch, Text } from 'native-base';
 import React, { useEffect } from 'react';
@@ -16,7 +16,7 @@ export const SettingsScreen = () => {
   const dispatch = useAppDispatch();
 
   const { t } = useTranslation();
-  const navigation = useNavigation();
+  const navigation = useAppNavigation();
 
   useEffect(() => {
     getUserDetails(uid!).then((res) => {
@@ -58,7 +58,7 @@ export const SettingsScreen = () => {
               <Switch value={mode === 'TEACHER'} onValueChange={onClickChangeMode} />
             </Right>
           </ListItem>
-          <ListItem icon onPress={() => navigation.navigate('About')}>
+          <ListItem icon onPress={() => navigation.navigate('UserDetails')}>
             <Left>
               <Icon name='contacts' type='AntDesign' />
             </Left>

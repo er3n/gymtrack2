@@ -1,5 +1,4 @@
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
+import { useAppNavigation } from 'app/navigation/useAppNavigation';
 import { signIn } from 'core';
 import { Text, Toast } from 'native-base';
 import React, { useCallback, useMemo } from 'react';
@@ -8,7 +7,6 @@ import { SafeAreaView, View } from 'react-native';
 import styled from 'styled-components';
 import { BigLogo, FormButton, FormContainer, FormInput } from 'ui';
 import * as yup from 'yup';
-import { UnAuthenticatedNavigations } from '../../navigation/NavigationTypes';
 
 const StyledContainer = styled(SafeAreaView)`
   height: 100%;
@@ -32,7 +30,7 @@ const ToSignUpLink = styled(Text)`
 export const SignInScreen = () => {
   const { t } = useTranslation();
 
-  const navigation = useNavigation<StackNavigationProp<UnAuthenticatedNavigations>>();
+  const navigation = useAppNavigation();
 
   const navigateToSignUp = useCallback(() => {
     navigation.replace('SignUp');

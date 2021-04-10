@@ -1,15 +1,14 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { DashboardScreen, SettingsScreen } from 'app/screen';
+import { GroupListScreen } from 'app/screen/group/GroupListScreen';
 import { Icon } from 'native-base';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { DashboardNavigation } from './DashboardNavigation';
-import { AuthenticatedNavigations } from './NavigationTypes';
-import SettingsNavigation from './SettingsNavigation';
-import TrainingNavigation from './TrainingNavigation';
+import { MainTab } from './AppNavigationTypes';
 
-const Tab = createBottomTabNavigator<AuthenticatedNavigations>();
+const Tab = createBottomTabNavigator<MainTab>();
 
-export const AuthenticatedNavigation = () => {
+export const MainTabNavigation = () => {
   const { t } = useTranslation();
 
   return (
@@ -20,7 +19,7 @@ export const AuthenticatedNavigation = () => {
 
           if (route.name === 'Status') {
             iconName = focused ? 'home' : 'home';
-          } else if (route.name === 'Trainings') {
+          } else if (route.name === 'GroupList') {
             iconName = focused ? 'bars' : 'bars';
           } else if (route.name === 'Settings') {
             iconName = focused ? 'setting' : 'setting';
@@ -35,21 +34,21 @@ export const AuthenticatedNavigation = () => {
       }}>
       <Tab.Screen
         name='Status'
-        component={DashboardNavigation}
+        component={DashboardScreen}
         options={{
           title: t('status'),
         }}
       />
       <Tab.Screen
-        name='Trainings'
-        component={TrainingNavigation}
+        name='GroupList'
+        component={GroupListScreen}
         options={{
-          title: t('trainings'),
+          title: t('groups'),
         }}
       />
       <Tab.Screen
         name='Settings'
-        component={SettingsNavigation}
+        component={SettingsScreen}
         options={{
           title: t('settings'),
         }}

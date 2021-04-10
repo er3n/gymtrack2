@@ -9,6 +9,12 @@ module.exports = {
       rules: {
         'jsx-quotes': 0,
       },
+      'prettier/prettier': [
+        error,
+        {
+          endOfLine: 'auto',
+        },
+      ],
     },
   ],
 };
